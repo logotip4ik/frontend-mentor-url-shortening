@@ -29,8 +29,7 @@
     transition: opacity 0.4s ease;
   }
 
-  &:hover::after,
-  &:focus::after {
+  &:is(:hover, :focus)::after {
     opacity: 1;
     transition: none;
   }
