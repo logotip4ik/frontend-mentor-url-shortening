@@ -38,7 +38,7 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     '@nuxtjs/google-fonts',
-    'nuxt-vite',
+    '@nuxtjs/style-resources',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -50,9 +50,13 @@ export default {
     families: {
       Poppins: { wght: [500, 700] },
     },
+    display: 'auto',
+    prefetch: true,
+    preconnect: true,
+    preload: true,
   },
-  display: 'auto',
-  prefetch: true,
-  preconnect: true,
-  preload: true,
+  styleResources: {
+    scss: ['@/assets/_mixins.scss'],
+    hoistUseStatements: true,
+  },
 }
