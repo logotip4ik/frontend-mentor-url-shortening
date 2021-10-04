@@ -23,4 +23,5 @@ html {
   min-height: 100vh;
   font-size: 18px;
   font-family: 'Poppins', system-ui, sans-serif;
+  overflow-x: hidden;
 }
