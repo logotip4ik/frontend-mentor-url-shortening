@@ -21,7 +21,7 @@ export default {}
 
 <style lang="scss">
 .nav {
-  @include basic-width;
+  @include base-width;
   display: flex;
   justify-content: space-between;
   align-items: center;
