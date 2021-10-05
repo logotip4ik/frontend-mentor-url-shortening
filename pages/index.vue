@@ -3,12 +3,13 @@
     <Navbar></Navbar>
     <Header></Header>
     <Shortener :links="links" @create-link="createLink"></Shortener>
+    <Statistics></Statistics>
   </div>
 </template>
 
 <script>
 const COOKIE_NAME = '__shortly__nuxt__'
-
+// [ ] somehow fix backkground-color issue when screen gets bigger and bigger
 export default {
   asyncData({ $cookies }) {
     const allCookies = $cookies.getAll()
