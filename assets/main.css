@@ -25,3 +25,12 @@ html {
   font-family: 'Poppins', system-ui, sans-serif;
   overflow-x: hidden;
 }
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.4s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
