@@ -59,4 +59,7 @@ export default {
     scss: ['@/assets/_mixins.scss'],
     hoistUseStatements: true,
   },
+  toast: {
+    position: 'bottom-center',
+  },
 }
