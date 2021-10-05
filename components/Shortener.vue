@@ -200,7 +200,7 @@ export default {
 
       background-color: white;
       border-radius: 0.5rem;
-      padding: 1rem 1rem;
+      padding: 0.75rem 1rem;
       // prettier-ignore
       box-shadow:
         0px 0.1px 2.2px rgba(0, 0, 0, 0.003),
