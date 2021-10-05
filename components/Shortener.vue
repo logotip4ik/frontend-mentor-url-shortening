@@ -32,18 +32,49 @@
         class="shortener__bg-image"
       />
     </div>
+
+    <transition-group
+      name="list"
+      class="shortener__links"
+      mode="out-in"
+      tag="ul"
+    >
+      <li
+        v-for="linkObj in links"
+        :key="linkObj.id"
+        class="shortener__links__link"
+      >
+        <h2 class="shortener__links__link__header">{{ linkObj.link }}</h2>
+        <p class="shortener__links__link__shorten">{{ linkObj.shortenLink }}</p>
+        <button
+          class="btn shortener__links__link__copy-button"
+          @click="() => copyLink(linkObj.shortenLink)"
+        >
+          Copy
+          <!-- [ ] add copied text and animation for it -->
+        </button>
+      </li>
+    </transition-group>
   </div>
 </template>
 
 <script>
 import { nanoid } from 'nanoid'
+import copy from 'copy-to-clipboard'
 
 export default {
+  props: { links: { type: Array, required: true, default: () => [] } },
   data: () => ({
     link: '',
     error: '',
   }),
   methods: {
+    copyLink(link) {
+      copy(link, {
+        format: 'text/plain',
+        onCopy: () => this.$toast.success('Copied!'),
+      })
+    },
     shortenLink() {
       if (!this.link) return (this.error = 'no-link')
       if (!this.link.match(/(ftp|https?):\/\/[^ "]+$/))
@@ -69,13 +100,16 @@ export default {
 <style lang="scss">
 .shortener__wrapper {
   @include base-width;
+  background-color: hsla(0, 0%, 75%, 0.25);
 }
+
 .shortener {
   display: grid;
   grid-template-columns: 80% auto;
   gap: 1rem;
 
   position: relative;
+  bottom: 3.25rem;
 
   isolation: isolate;
   border-radius: 0.5rem;
@@ -130,6 +164,10 @@ export default {
   &__button {
     border-radius: 0.5rem;
     padding-block: 0.75rem;
+
+    &::after {
+      border-radius: 0.5rem;
+    }
   }
 
   &__bg-image {
@@ -142,6 +180,61 @@ export default {
     height: 100%;
 
     border-radius: 0.5rem;
+  }
+
+  &__links {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 1rem;
+
+    position: relative;
+    bottom: 2.5rem;
+
+    &__link {
+      display: grid;
+      align-items: center;
+      grid-template-columns: 50% auto 5rem;
+      gap: 1rem;
+
+      background-color: white;
+      border-radius: 0.5rem;
+      padding: 1rem 1rem;
+      // prettier-ignore
+      box-shadow:
+        0px 0.1px 2.2px rgba(0, 0, 0, 0.003),
+        0px 0.3px 5.3px rgba(0, 0, 0, 0.004),
+        0px 0.6px 10px rgba(0, 0, 0, 0.005),
+        0px 1.1px 17.9px rgba(0, 0, 0, 0.006),
+        0px 2.1px 33.4px rgba(0, 0, 0, 0.007),
+        0px 5px 80px rgba(0, 0, 0, 0.01)
+      ;
+
+      &__header {
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--neutral-very-dark-blue);
+
+        user-select: all;
+      }
+
+      &__shorten {
+        font-size: 0.9rem;
+        color: var(--primary-cyan);
+
+        justify-self: end;
+        user-select: all;
+      }
+
+      &__copy-button {
+        border-radius: 0.25rem;
+
+        &::after {
+          border-radius: 0.25rem;
+        }
+      }
+    }
   }
 }
 </style>
