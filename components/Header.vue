@@ -30,7 +30,7 @@ export default {}
   gap: 1rem;
 
   padding-block: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
 
   &__content {
     max-width: 45ch;
