@@ -42,7 +42,7 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['cookie-universal-nuxt'],
+  modules: ['cookie-universal-nuxt', '@nuxtjs/toast'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
