@@ -2,6 +2,7 @@
   <div>
     <Navbar></Navbar>
     <Header></Header>
+    <Shortener></Shortener>
   </div>
 </template>
 
