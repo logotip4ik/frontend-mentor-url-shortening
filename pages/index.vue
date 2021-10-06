@@ -5,6 +5,7 @@
     <Shortener :links="links" @create-link="createLink"></Shortener>
     <Statistics></Statistics>
     <Boost></Boost>
+    <Footer></Footer>
   </div>
 </template>
 
