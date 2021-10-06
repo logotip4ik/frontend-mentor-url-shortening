@@ -60,7 +60,8 @@
   flex-direction: column;
   gap: 2rem;
 
-  background-color: hsla(0, 0%, 75%, 0.25);
+  position: relative;
+
   padding-block: 3rem;
 
   &__header {
@@ -154,6 +155,20 @@
 
       transform: translate(-50%, -50%);
     }
+  }
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: -1;
+
+    width: 100vw;
+    height: 100%;
+    background-color: #f7f7f7;
+    transform: translate(-50%, 0);
   }
 }
 </style>

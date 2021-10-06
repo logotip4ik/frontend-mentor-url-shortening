@@ -9,7 +9,7 @@
 
 <script>
 const COOKIE_NAME = '__shortly__nuxt__'
-// [ ] somehow fix backkground-color issue when screen gets bigger and bigger
+
 export default {
   asyncData({ $cookies }) {
     const allCookies = $cookies.getAll()

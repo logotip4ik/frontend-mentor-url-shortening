@@ -100,7 +100,27 @@ export default {
 <style lang="scss">
 .shortener__wrapper {
   @include base-width;
-  background-color: hsla(0, 0%, 75%, 0.25);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 1rem;
+
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 50%;
+    height: 100%;
+    width: 100vw;
+
+    transform: translate(-50vw, 30%);
+    background-color: #f7f7f7;
+  }
 }
 
 .shortener {
@@ -109,7 +129,6 @@ export default {
   gap: 1rem;
 
   position: relative;
-  bottom: 3.25rem;
 
   isolation: isolate;
   border-radius: 0.5rem;
@@ -190,7 +209,7 @@ export default {
     gap: 1rem;
 
     position: relative;
-    bottom: 2.5rem;
+    // bottom: 2.5rem;
 
     &__link {
       display: grid;
