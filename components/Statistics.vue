@@ -170,5 +170,41 @@
     background-color: #f7f7f7;
     transform: translate(-50%, 0);
   }
+
+  @media screen and (max-width: 1080px) {
+    &__articles {
+      gap: 4rem;
+      &__article {
+        top: initial !important;
+        bottom: initial !important;
+
+        text-align: center;
+
+        &__icon {
+          transform: translateX(-50%);
+        }
+      }
+      &::after {
+        opacity: 0;
+      }
+    }
+  }
+
+  @media screen and (max-width: 730px) {
+    &__header {
+      &__heading {
+        font-size: 1.5rem;
+      }
+      &__info {
+        font-size: 0.9rem;
+      }
+    }
+
+    &__articles::after {
+      opacity: 1;
+      width: calc(150px * 3);
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+  }
 }
 </style>
