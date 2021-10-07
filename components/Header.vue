@@ -16,10 +16,6 @@
   </header>
 </template>
 
-<script>
-export default {}
-</script>
-
 <style lang="scss">
 .header {
   @include base-width;
@@ -53,6 +49,30 @@ export default {}
   }
   &__image {
     display: block;
+  }
+
+  @media screen and (max-width: 830px) {
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+
+    &__content {
+      &__heading {
+        font-size: 2.25rem;
+        margin-bottom: 0.5rem;
+      }
+      &__info {
+        font-size: 0.9rem;
+      }
+    }
+
+    &__image {
+      width: 150%;
+      max-width: 500px;
+      height: auto;
+
+      transform: translateX(15%);
+    }
   }
 }
 </style>
