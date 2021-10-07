@@ -247,6 +247,7 @@ export default {
           top: calc(100% + 0.45rem);
           left: 50%;
 
+          opacity: 0;
           width: calc(100% + calc(1rem * 2));
           height: 2px;
           background-color: hsla(0, 0%, 75%, 0.25);
