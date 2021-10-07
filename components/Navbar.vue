@@ -99,6 +99,11 @@ export default {
           color: white;
         }
       }
+
+      hr {
+        width: 100%;
+        opacity: 0.25;
+      }
     }
     &--active {
       transform: translate(-50%, 0);
@@ -127,11 +132,15 @@ export default {
     }
 
     &--mobile {
+      width: 100%;
       flex-direction: column;
 
       .nav__list__item {
         color: white;
         font-size: 1rem;
+        width: 100%;
+
+        text-align: center;
 
         &:hover {
           color: var(--neutral-gray);
