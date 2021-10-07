@@ -27,7 +27,7 @@
         Shorten It!
       </button>
       <img
-        src="/bg-shorten-desktop.svg"
+        srcset="/bg-shorten-desktop.svg, /bg-shorten-mobile.svg 825w"
         alt="just a bg image"
         class="shortener__bg-image"
       />
@@ -194,6 +194,8 @@ export default {
 
     position: absolute;
     z-index: -1;
+    left: 0;
+    top: 0;
 
     width: 100%;
     height: 100%;
@@ -209,7 +211,6 @@ export default {
     gap: 1rem;
 
     position: relative;
-    // bottom: 2.5rem;
 
     &__link {
       display: grid;
@@ -231,11 +232,27 @@ export default {
       ;
 
       &__header {
+        position: relative;
+
         font-size: 1rem;
         font-weight: 500;
         color: var(--neutral-very-dark-blue);
 
         user-select: all;
+
+        &::after {
+          content: '';
+
+          position: absolute;
+          top: calc(100% + 0.45rem);
+          left: 50%;
+
+          width: calc(100% + calc(1rem * 2));
+          height: 2px;
+          background-color: hsla(0, 0%, 75%, 0.25);
+
+          transform: translateX(-50%);
+        }
       }
 
       &__shorten {
@@ -253,7 +270,26 @@ export default {
           border-radius: 0.25rem;
         }
       }
+
+      @media screen and (max-width: 825px) {
+        display: flex;
+        justify-content: flex-start;
+        align-items: stretch;
+        flex-direction: column;
+
+        &__header::after {
+          opacity: 1;
+        }
+      }
     }
+  }
+
+  @media screen and (max-width: 825px) {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 2rem;
   }
 }
 </style>
