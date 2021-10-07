@@ -3,7 +3,7 @@
     <h4 class="booster__header">Boost your links today</h4>
     <button class="btn btn--xlg">Get Started</button>
     <img
-      src="/bg-boost-desktop.svg"
+      srcset="/bg-boost-desktop.svg 9999999w, /bg-boost-mobile.svg 600w"
       alt="just a bg pattern"
       class="booster__bg-image"
     />
@@ -27,6 +27,9 @@
 
   &__header {
     font-size: 2.125rem;
+    font-size: clamp(1.25rem, 5vw, 2.125rem);
+    text-align: center;
+
     color: white;
   }
 
