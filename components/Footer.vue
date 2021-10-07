@@ -123,6 +123,7 @@ export default {}
 
     display: grid;
     grid-template-columns: 1fr auto 1fr;
+    gap: 1rem;
 
     color: white;
 
@@ -138,11 +139,13 @@ export default {}
 
       &__list {
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: flex-start;
         flex-direction: column;
         gap: 0.5rem;
 
+        width: 100%;
+        max-width: max-content;
         list-style-type: none;
 
         &__item {
@@ -170,6 +173,11 @@ export default {}
           }
         }
       }
+
+      @media screen and (max-width: 480px) {
+        flex-direction: column;
+        align-items: center;
+      }
     }
 
     &__social {
@@ -190,6 +198,26 @@ export default {}
           fill: var(--primary-cyan);
           transition: none;
         }
+      }
+
+      @media screen and (max-width: 480px) {
+        flex-direction: column;
+      }
+    }
+
+    @media screen and (max-width: 800px) {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+      gap: 2rem;
+
+      &__links__list {
+        align-items: center;
+      }
+
+      &__social {
+        align-items: center;
       }
     }
   }
