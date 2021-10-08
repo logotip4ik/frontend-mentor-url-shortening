@@ -6,9 +6,11 @@
 const COOKIE_NAME = '__shortly__nuxt__'
 
 export default {
-  async asyncData({ params, $cookies, redirect }) {
-    const { link } = await $cookies.get(`${COOKIE_NAME}${params.id}`)
-    redirect(link)
+  beforeMount() {
+    const { id } = this.$route.params
+    const link = this.$cookies.get(`${COOKIE_NAME}${id}`)
+
+    window.location = link.link
   },
 }
 </script>
